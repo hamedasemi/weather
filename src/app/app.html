@@ -14,7 +14,7 @@
             }
         </style>
         <app-location route="{{route}}"></app-location>
-        <search-input placeholder="[[localize('SEARCH_PLACEHOLDER')]]"></search-input>
+        <search-input on-add-new-city="handleAddNewCity" placeholder="[[localize('SEARCH_PLACEHOLDER')]]"></search-input>
         <current-weather-list>
             <current-weather city="Tehran"></current-weather>
             <current-weather city="Seattle"></current-weather>
@@ -40,12 +40,13 @@
                     this.set('language', this.route.__queryParams.lang)
                 }
                 this.loadResources(this.resolveUrl('assets/locales.json'));
-                window.addEventListener('add-new-city', (e) => {
-                    let dynamicEl = document.createElement("current-weather");
-                    dynamicEl.setAttribute('city', e.detail.city);
-                    Polymer.dom(this.root).querySelector('current-weather-list').prepend(dynamicEl);
-                    return false;
-                })
+            }
+
+            handleAddNewCity(e) {
+                let dynamicEl = document.createElement("current-weather");
+                dynamicEl.setAttribute('city', e.detail.city);
+                Polymer.dom(this.root).querySelector('current-weather-list').prepend(dynamicEl);
+                return false;
             }
         }
         customElements.define(XApp.is, XApp);

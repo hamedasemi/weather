@@ -148,7 +148,7 @@
             }
 
             handleClick(e) {
-                window.dispatchEvent(new CustomEvent('add-new-city', { detail: { city: e.target.name } }));
+                this.dispatchEvent(new CustomEvent('add-new-city', { detail: { city: e.target.name } }));
                 this.newSearch = '';
                 this.searchResult = [];
             }
