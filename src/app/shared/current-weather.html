@@ -1,14 +1,14 @@
 <dom-module id="current-weather">
     <template>
         <style>
-            .loader,
-            .loader:after {
+            spinner,
+            spinner:after {
                 border-radius: 50%;
                 width: 10em;
                 height: 10em;
             }
 
-            .loader {
+            spinner {
                 font-size: 10px;
                 position: relative;
                 text-indent: -9999em;
@@ -45,25 +45,40 @@
                 min-width: 20rem;
                 animation: 1s load;
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
+                align-items: center;
                 padding: 2rem;
+                position: relative;
             }
 
             img {
                 flex-shrink: 0;
             }
 
-             :host([status=loaded]) .loader {
+             :host([status=loaded]) spinner {
                 display: none;
             }
+
+            name {
+                font-size: 1.6rem;
+            }
+
+            country {
+                font-size: 1.2rem;
+            }
+            remove {
+                color: red;
+                position: absolute;
+                right: 2rem;
+            }
         </style>
-        <div class="loader"></div>
-        <div>[[searchResult.location.name]]</div>
-        <div>[[searchResult.location.country]]</div>
+        <spinner></spinner>
+        <name>[[searchResult.location.name]]</name>
+        <country>[[searchResult.location.country]]</country>
         <div>[[searchResult.current.condition.text]]</div>
-        <img src="[[searchResult.current.condition.icon]]" alt="">
+        <img src="[[searchResult.current.condition.icon]]" width=64 alt="">
         <div>[[searchResult.current.temp_c]]</div>
-        <button on-click="handleRemove">X</button>
+        <remove on-click="handleRemove">x</remove>
         <iron-ajax auto url="https://api.apixu.com/v1/current.json" params="[[params]]" handle-as="json" on-response="handleResponse"
             debounce-duration="300"></iron-ajax>
     </template>

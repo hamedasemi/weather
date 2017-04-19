@@ -3,6 +3,7 @@
         <style>
              :host {
                 max-width: 1024px;
+                width: 1024;
             }
 
             current-weather-list {
@@ -42,7 +43,7 @@
                 window.addEventListener('add-new-city', (e) => {
                     let dynamicEl = document.createElement("current-weather");
                     dynamicEl.setAttribute('city', e.detail.city);
-                    Polymer.dom(this.root).querySelector('current-weather-list').append(dynamicEl);
+                    Polymer.dom(this.root).querySelector('current-weather-list').prepend(dynamicEl);
                     return false;
                 })
             }
