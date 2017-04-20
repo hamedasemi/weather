@@ -28,6 +28,7 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
+            align-items: center;
             color: white;
             background: gray;
             font-family: sans-serif;
@@ -135,20 +136,20 @@
                 setTimeout(() => {
                     body.setAttribute('status', 'loaded')
                     window.scrollTo(0, 0)
-                }, 300)
+                }, 1000)
                 return false
             }
 
             function webComponentsReady(e) {
                 setTimeout(() => {
                     body.setAttribute('status', 'ready')
-                }, 500)
+                }, 200)
                 setTimeout(() => {
                     body.setAttribute('status', 'go')
                 }, 1000)
                 setTimeout(() => {
                     body.setAttribute('status', 'done')
-                }, 1000)
+                }, 2000)
                 return false
             }
 
@@ -194,11 +195,11 @@
     <x-app></x-app>
     <x-loader>
         <x-spinner line></x-spinner>
-        <x-messages>
+        <!--<x-messages>
             <x-message hi>Hi</x-message>
             <x-message loading>Please wait!</x-message>
             <x-message ready>things are getting ready!</x-message>
-        </x-messages>
+        </x-messages>-->
     </x-loader>
 </body>
 

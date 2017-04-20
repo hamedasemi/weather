@@ -5,7 +5,6 @@
                 display: block;
                 position: relative;
                 z-index: 10;
-
             }
 
             input[type="text"] {
@@ -13,6 +12,11 @@
                 width: 100%;
                 box-sizing: border-box;
                 font-size: inherit;
+                min-width: 240px;
+                flex-grow: 1;
+                flex-shrink: 0;
+                border: 0;
+                outline: 0;
             }
 
             spinner,
@@ -91,6 +95,11 @@
 
             search-result:hover {
                 background: lightgray;
+                color: black;
+            }
+
+            span {
+                pointer-events: none;
             }
         </style>
         <input type="text" placeholder="[[placeholder]]" value="{{newSearch::input}}">
