@@ -102,7 +102,7 @@
                 pointer-events: none;
             }
         </style>
-        <input type="text" placeholder="Skriv stadens namn" value="{{newSearch::input}}">
+        <input type="text" placeholder="{{placeholder}}" value="{{newSearch::input}}">
         <spinner></spinner>
         <search-result-list>
             <template is="dom-repeat" items="[[searchResult]]">
@@ -140,8 +140,7 @@
                         value: 'loaded'
                     },
                     placeholder: {
-                        type: String,
-                        value: 'Skriv stadens namn'
+                        type: String
                     }
                 }
             }

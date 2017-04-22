@@ -32,6 +32,14 @@
                 return {
                     language: {
                         value: 'sv'
+                    },
+                    resource: {
+                        "en": {
+                            "SEARCH_PLACEHOLDER": "Type the city name"
+                        },
+                        "sv": {
+                            "SEARCH_PLACEHOLDER": "Skriv stadens namn"
+                        }
                     }
                 };
             }
@@ -40,7 +48,6 @@
                 if (this.route.__queryParams.lang) {
                     this.set('language', this.route.__queryParams.lang)
                 }
-                this.loadResources(this.resolveUrl('assets/locales.json'));
             }
 
             handleAddNewCity(e) {
